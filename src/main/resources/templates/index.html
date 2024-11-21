@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<title>Inventory Management System</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<link rel="icon" th:href="@{/images/ims-favicon.png}" alt="image/png">
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo">
+				<img th:src="@{/images/ims-logo.png}" alt="IMS logo" width='50' height='50'>
+			</div>
+			<ul class="nav-links" style="padding-left: 50px;">
+				<li><a th:href="@{/}" th:text="${menu.dashboard}">Dashboard</a></li>
+				<li><a th:href="@{/products}" th:text="${menu.products}">Products</a></li>
+				<li><a th:href="@{/categories}"
+					th:text="${menu.categories}">Categories</a></li>
+				<li><a th:href="@{/orders}" th:text="${menu.orders}">Orders</a></li>
+				<li><a th:href="@{/profile}" th:text="${menu.profile}">Profile</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+		<aside class="sidebar">
+			<ul>
+				<li><a th:href="@{/}" th:text="${menu.dashboard}">Dashboard</a></li>
+				<li><a th:href="@{/products}" th:text="${menu.products}">Products</a></li>
+				<li><a th:href="@{/categories}"
+					th:text="${menu.categories}">Categories</a></li>
+				<li><a th:href="@{/orders}" th:text="${menu.orders}">Orders</a></li>
+				<li><a th:href="@{/profile}" th:text="${menu.profile}">Profile</a></li>
+			</ul>
+		</aside>
+		<main>
+			<section>
+				<h3 th:text="${welcomeMessage}">Welcome to Your Inventory
+					Management System</h3>
+				<!-- Main content goes here -->
+				<!-- Form to Add Products -->
+				<form id="productForm">
+					<section>
+					<div id="notification" class="notification">Product added successfully</div>
+						<label for="name">Product Name:</label> <input type="text"
+							id="name" name="name" required><label
+							for="description">Description:</label> <input type="text"
+							id="description" name="description" required>
+						<label for="price">Price:</label><input type="number" id="price"
+							name="price" required><label
+							for="quantity">Quantity:</label> <input type="number"
+							id="quantity" name="quantity" required>
+						<button type="submit">Add Product</button>
+					</section>
+				</form><br/>
+
+				<!-- Table to Display Products -->
+				<table id="productsTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+	<footer>
+		<p
+			th:text="'&copy; ' + ${currentYear} + ' Your Company. All rights reserved.'">&copy;
+			2024 Your Company. All rights reserved.</p>
+	</footer>
+	<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
